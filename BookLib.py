@@ -1,8 +1,8 @@
 class Book:
-    def __init__(self, name, pages_qty):
+    def __init__(self, name, pages_qty, pages_read):
         self.name = name
         self.pages_qty = pages_qty
-        self.pages_read = 0
+        self.pages_read = pages_read
 
     def to_read(self, pages):
         if self.pages_read + pages <= self.pages_qty:
@@ -28,5 +28,5 @@ class Library:
             print("Книга не знайдена в бібліотеці.")
 
     def display_book_list(self):
-        for book in self.book_list:
-            print(f"Назва: {book.name}, Прочитано: {book.read_percent()}%")
+        for i, book in enumerate(self.book_list, start=1):
+            print(f"{i}. Назва: {book.name}, Прочитано: {book.read_percent():.2f}%")
