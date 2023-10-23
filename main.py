@@ -2,6 +2,9 @@ from BookLib import Book, Library
 
 library = Library()
 
+print("Лабораторна Робота №4 Варіант 3")
+print("Кобрин Гліб, ІКСМ-1, Навчальна група №2")
+
 while True:
     main_input = input("Оскільки даний код - Бібліотека, то прошу обрати команду для виконання: "
                        "\n1.Додати запис книги"
@@ -12,11 +15,16 @@ while True:
 
     if main_input == "1":
         name = input("Введіть назву книги, яку ви хочете додати: ")
-        pages_qty = int(input("Введіть кількість сторінок у книзі: "))
-        pages_read = int(input("Введіть кількість прочитаних сторінок: "))
-        new_book = Book(name, pages_qty, pages_read)
-        library.add_book(new_book)
-        print("Книга була успішно додана")
+        while True:
+            pages_qty = int(input("Введіть кількість сторінок у книзі: "))
+            pages_read = int(input("Введіть кількість прочитаних сторінок: "))
+            if pages_read <= pages_qty:
+                new_book = Book(name, pages_qty, pages_read)
+                library.add_book(new_book)
+                print("Книга була успішно додана")
+                break
+            else:
+                print("Неможливо прочитати більше сторінок, ніж є в книзі. Повернення до вводу сторінок")
     elif main_input == "2":
         library.display_book_list()
         book_num = int(input("Введіть номер книжки у списку для видалення: "))

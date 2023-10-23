@@ -4,15 +4,8 @@ class Book:
         self.pages_qty = pages_qty
         self.pages_read = pages_read
 
-    def to_read(self, pages):
-        if self.pages_read + pages <= self.pages_qty:
-            self.pages_read += pages
-        else:
-            print("Не можливо прочитати більше сторінок, ніж є в книзі.")
-
     def read_percent(self):
         return (self.pages_read / self.pages_qty) * 100
-
 
 class Library:
     def __init__(self):
