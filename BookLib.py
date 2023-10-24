@@ -7,6 +7,7 @@ class Book:
     def read_percent(self):
         return (self.pages_read / self.pages_qty) * 100
 
+
 class Library:
     def __init__(self):
         self.book_list = []
